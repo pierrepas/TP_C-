@@ -14,10 +14,11 @@ int main( int argc, char** argv )
         std::cerr << "Usage: filtrage-median <input.pgm> <output.pgm> <nombre>" << std::endl;
         return 0;
     }
-    GrayLevelImage2D imgIn, img;
+    GrayLevelImage2D imgIn;
     int tailleFiltrage = 3;
     ifstream input( argv[1] ); // récupère le 1er argument.
     bool ok = imgIn.importPGM( input );
+    GrayLevelImage2D img = GrayLevelImage2D(imgIn.w(), imgIn.h());
     if ( !ok )
     {
         std::cerr << "Error reading input file." << std::endl;
